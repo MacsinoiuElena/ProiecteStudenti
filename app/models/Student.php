@@ -54,11 +54,15 @@
         }
 
         public function verifyGroup($group){
-            if ($group[0] == '4' and ($group[1] <= '4' and $group[1] >= '1') and ($group[2] <= '4' and $group[2] >= '1') 
+            if (strlen($group) != 4){
+                return false;
+            }else{
+                if ($group[0] == '4' and ($group[1] <= '4' and $group[1] >= '1') and ($group[2] <= '4' and $group[2] >= '1') 
             and ($group[3] >= 'A' and $group[3] <= 'G')){
                 return true;
             }else{
                 return false;
+            }
             }
         }
 
@@ -91,5 +95,32 @@
 
             $row = $this->db->single();
             return $row;
+        }
+
+        public function modificaStudent($data){
+            $this->db->query('UPDATE student SET nume = :name, prenume =  :fname, email = :email, grupa = :grupa WHERE id = :id');
+            $this->db->bind(':name', $data['name']);
+            $this->db->bind(':id', $data['id']);
+            $this->db->bind(':fname', $data['fname']); 
+            $this->db->bind(':email', $data['email']);
+            $this->db->bind(':grupa', $data['group']);  
+            
+            if($this->db->execute()){
+                $this->db->query('SELECT id FROM proiect WHERE denumire = :denumire');
+                $this->db->bind(':denumire', $data['den']);
+                $row_proiect = $this->db->single();
+                $id_proiect = $row_proiect->id;
+
+                $this->db->query('UPDATE proiect_student SET id_proiect = :id_proiect WHERE id_student = :id');
+                $this->db->bind(':id_proiect', $id_proiect);
+                $this->db->bind(':id', $data['id']);
+                if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+            }else{
+                return false;
+            }
         }
     }

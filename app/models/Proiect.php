@@ -61,4 +61,17 @@
             $row = $this->db->single();
             return $row;
         }
+
+        public function modificaProiect($data){
+            $this->db->query('UPDATE proiect SET denumire = :den, descriere = :descriere WHERE id = :id');
+            $this->db->bind(':den', $data['den']);
+            $this->db->bind(':descriere', $data['descriere']);  
+            $this->db->bind(':id' ,$data['id']);
+
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }

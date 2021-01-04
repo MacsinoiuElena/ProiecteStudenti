@@ -13,12 +13,12 @@
           Cauta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php echo URLROOT;?>/pages/adauga_proiect">Adauga Proiect</a>
-          <a class="dropdown-item" href="<?php echo URLROOT;?>/pages/adauga_student">Adauga Student</a>
+          <a class="dropdown-item" href="<?php echo URLROOT;?>/projects/adaugaProiect">Adauga Proiect</a>
+          <a class="dropdown-item" href="<?php echo URLROOT;?>/students/adaugaStudent">Adauga Student</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo URLROOT;?>/pages/proiecte">Lista Proiecte</a>
-          <a class="dropdown-item" href="<?php echo URLROOT;?>/pages/studenti">Studenti</a>
-          <a class="dropdown-item" href="<?php echo URLROOT;?>/pages/evidenta">Evidenta</a>
+          <a class="dropdown-item" href="<?php echo URLROOT;?>/projects/proiecte">Lista Proiecte</a>
+          <a class="dropdown-item" href="<?php echo URLROOT;?>/students/studenti">Studenti</a>
+          <a class="dropdown-item" href="<?php echo URLROOT;?>/students/evidenta">Evidenta</a>
         </div>
         </ul>
       </div>

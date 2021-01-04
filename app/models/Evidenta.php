@@ -17,4 +17,18 @@
 
                 return $results;
             }
+
+            public function getIdProjByStud($id){
+                $this->db->query('SELECT id_proiect FROM proiect_student WHERE id_student = :id_student');
+                $this->db->bind(':id_student', $id);
+                $result = $this->db->single();
+                return $result->id_proiect;
+            }
+
+            public function getProjName($id){
+                $this->db->query('SELECT denumire FROM proiect WHERE id = :id');
+                $this->db->bind(':id', $id);
+                $result = $this->db->single();
+                return $result->denumire;
+            }
     }
