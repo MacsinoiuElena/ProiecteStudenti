@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h1 class="mt-5">Studenti</h1><br>
+        <?php if (!empty($data['student'])){?>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -33,6 +34,9 @@
                             }?>
             </tbody>
         </table>
+        <?php }else{
+              echo "<h6 class='mt-5'>Nu exista inregistrari</h6>";
+        }?>
       </div>
     </div>
   </div>
