@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h1 class="mt-5">Lista Proiecte</h1><br>
-        <?php if (!empty($data['proiecte'])){?>
+        <?php if (!empty($data['proiect'])){?>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -33,6 +33,7 @@
         <?php }else{
               echo "<h6 class='mt-5'>Nu exista inregistrari</h6>";
         }?>
+        <?php echo $data['error'];?>
       </div>
     </div>
   </div>

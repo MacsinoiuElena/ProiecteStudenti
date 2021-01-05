@@ -18,9 +18,8 @@ class Students extends Controller{
 
     public function sterge($id){
         if($_SERVER["REQUEST_METHOD"] == 'POST'){
-            $stud = $this->studModel->getStudById($id);
             if($this->studModel->sterge($id)){
-                redirect('student/studenti');
+                redirect('students/studenti');
             }else{
                 die("Something went wrong");
             }
@@ -46,7 +45,7 @@ class Students extends Controller{
                 'fname' => trim($_POST['fname']),
                 'email' => trim($_POST['email']),
                 'group' => trim($_POST['group']),
-                'den' => '',
+                'den' => $_POST['den'],
                 'fname_error' =>  '',
                 'name_error' =>  '',
                 'email_error' =>  '',
@@ -142,10 +141,6 @@ class Students extends Controller{
                     'den_error' => ''
                 ];
 
-        
-                if(!empty($_POST['den'])){
-                    $data['den'] = $_POST['den'];
-                }
     
                 if(empty($data['email']))
                 {
@@ -192,14 +187,15 @@ class Students extends Controller{
             }else{
                 $student = $this->studModel->getStudById($id);
                 $idProj = $this->evidModel->getIdProjByStud($id);
-                $proj = $this->evidModel->getProjName($idProj);
+                $proj = $this->projModel->getProjName($idProj);
                 $data = [
                     'id' => $id,
                     'name' => $student->nume,
                     'fname' => $student->prenume,
                     'email' => $student->email,
                     'group' => $student->grupa,
-                    'den' => $proj
+                    'den' => $proj,
+                    'proiect' => $this->projModel->denArray()
                 ];
                 $this->view('students/modificaStudent', $data);  
             }

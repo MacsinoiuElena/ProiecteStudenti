@@ -16,14 +16,26 @@ class Projects extends Controller{
     }
 
     public function stergeProiect($id){
-        if($_SERVER["REQUEST_METHOD"] == 'POST'){
-            $stud = $this->projModel->getProjById($id);
-            if($this->projModel->stergeProiect($id)){
-                redirect('projects/proiecte');
-            }else{
-                die("Something went wrong");
+        if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+            $var = $this->projModel->stergeProiect($id);
+            if ($var == 1) {
+                $data =  [
+                    'error' => '',
+                    'proiect' => $this->projModel->denArray()
+                ];
+                $this->view('projects/proiecte', $data);
+            } else {
+                if ($var == -1) {
+                    die("Something went wrong");
+                } else {
+                    $data =  [
+                        'error' => "Project has already been choosen. You can not delete it.",
+                        'proiect' => $this->projModel->denArray()
+                    ];
+                    $this->view('projects/proiecte', $data);
+                }
             }
-        }else{
+        } else {
             redirect('projects/proiecte');
         }
     }

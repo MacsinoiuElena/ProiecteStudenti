@@ -35,7 +35,7 @@
                     <div class="form-group">
                         <label for="den">Proiect: <sup>*</sup></label><br>
                         <select name="den" id="proiect" class = "form-control form-control-lg <?php echo (!empty($data['den_error'])) ? 'is-invalid': '';?>" >
-                            <option value="" disabled selected>Alege proiectul</option>
+                            <option value="<?php echo $data['den'];?>"   selected>Alege proiectul</option>
                             <?php 
                             foreach ($data['proiect'] as $proiect){
                                 ?><option value = "<?php echo $proiect->denumire;?>"><?php echo $proiect->denumire;?></option>

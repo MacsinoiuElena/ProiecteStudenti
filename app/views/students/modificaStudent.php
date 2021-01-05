@@ -3,7 +3,7 @@
     <div class="row">
     <div class = "col-md-6 mx-auto">
             <div class = "card card-body bg-light mt-5">
-                <h2>Adauga Student</h2>
+                <h2>Modifica Student</h2>
                 <form action="<?php echo URLROOT;?>/students/modificaStudent/<?php echo $data['id'];?>" method="post">
                     <div class = "form-group">
                         <label for="name">Nume: <sup>*</sup></label><br>
@@ -38,9 +38,10 @@
                             <option value="<?php echo $data['den'];?>"  selected><?php echo $data['den'];?></option>
                             <?php 
                             foreach ($data['proiect'] as $proiect){
+                                if ($proiect->denumire != $data['den']){ 
                                 ?><option value = "<?php echo $proiect->denumire;?>"><?php echo $proiect->denumire;?></option>
                                 <?php
-                            }?>
+                            }}?>
                         </select>
                         <span class="invalid-feedback"><?php echo $data['den_error'];?></span>
                     </div>

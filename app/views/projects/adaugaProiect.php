@@ -13,7 +13,7 @@
                     <div class = "form-group">
                         <label for="descriere">Descriere: <sup>*</sup></label><br>
                         <textarea name = "descriere" class = "form-control form-control-lg <?php echo (!empty($data['desc_error'])) ? 'is-invalid': '';?>" 
-                        ></textarea>
+                        ><?php echo $data['descriere'];?></textarea>
                         <span class="invalid-feedback"><?php echo $data['desc_error'];?></span>
                     </div>
 

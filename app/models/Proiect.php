@@ -39,18 +39,20 @@
         }
 
         public function stergeProiect($id){
-            $this->db->query('DELETE FROM proiect_student WHERE id_proiect = :id');
+            $this->db->query('SELECT * FROM proiect_student WHERE id_proiect = :id');
             $this->db->bind(':id', $id);
-            if($this->db->execute()){
+            
+            $result = $this->db->resultSet();
+            if (!empty($result)){
+                return 0;
+            }else{
                 $this->db->query('DELETE FROM proiect WHERE id = :id');
                 $this->db->bind(':id', $id);
                 if($this->db->execute()){
-                return true;
-            }else{
-                    return false;
+                    return 1;
+                }else{
+                    return -1;
                 }
-            }else{
-                return false;
             }
         }
 
@@ -73,5 +75,13 @@
             }else{
                 return false;
             }
+        }
+
+        
+        public function getProjName($id){
+            $this->db->query('SELECT denumire FROM proiect WHERE id = :id');
+            $this->db->bind(':id', $id);
+            $result = $this->db->single();
+            return $result->denumire;
         }
     }
