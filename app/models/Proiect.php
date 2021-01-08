@@ -76,12 +76,4 @@
                 return false;
             }
         }
-
-        
-        public function getProjName($id){
-            $this->db->query('SELECT denumire FROM proiect WHERE id = :id');
-            $this->db->bind(':id', $id);
-            $result = $this->db->single();
-            return $result->denumire;
-        }
     }

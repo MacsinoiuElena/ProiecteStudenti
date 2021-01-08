@@ -192,7 +192,7 @@ class Students extends Controller{
             }else{
                 $student = $this->studModel->getStudById($id);
                 $idProj = $this->evidModel->getIdProjByStud($id);
-                $proj = $this->projModel->getProjName($idProj);
+                $proj = $this->projModel->getProjById($idProj)->denumire;
                 $data = [
                     'id' => $id,
                     'name' => $student->nume,

@@ -16,7 +16,8 @@ class Projects extends Controller{
 
     public function proiecte(){
         $data = [
-            'proiect' => $this->projModel->denArray()
+            'proiect' => $this->projModel->denArray(),
+            'error' => ''
         ];
         $this->view('projects/proiecte', $data);
     }
