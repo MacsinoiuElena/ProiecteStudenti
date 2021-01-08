@@ -37,5 +37,4 @@
       </div>
     </div>
   </div>
-  <?php echo phpversion();?>
   <?php require APPROOT . '/views/initial/footer.php';?>
