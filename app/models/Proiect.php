@@ -64,6 +64,14 @@
             return $row;
         }
 
+        public function getProjByDen($den){
+            $this->db->query('SELECT * FROM proiect WHERE denumire = :den');
+            $this->db->bind(':den' ,$den);
+
+            $row = $this->db->single();
+            return $row;
+        }
+
         public function modificaProiect($data){
             $this->db->query('UPDATE proiect SET denumire = :den, descriere = :descriere WHERE id = :id');
             $this->db->bind(':den', $data['den']);
@@ -75,5 +83,13 @@
             }else{
                 return false;
             }
+        }
+
+        public function checkedProj($id){
+            $this->db->query('SELECT denumire FROM proiect_student JOIN proiect WHERE proiect.id = proiect_student.id_proiect AND proiect_student.id_student = :id ');
+            $this->db->bind(':id' ,$id);
+
+            $row = $this->db->resultSet();
+            return $row;
         }
     }

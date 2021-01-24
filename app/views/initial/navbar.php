@@ -16,9 +16,9 @@
           <a class="dropdown-item" href="<?php echo URLROOT;?>/projects/adaugaProiect">Adauga Proiect</a>
           <a class="dropdown-item" href="<?php echo URLROOT;?>/students/adaugaStudent">Adauga Student</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo URLROOT;?>/projects/proiecte">Lista Proiecte</a>
+          <a class="dropdown-item" href="<?php echo URLROOT;?>/projects/proiecte">Proiecte</a>
           <a class="dropdown-item" href="<?php echo URLROOT;?>/students/studenti">Studenti</a>
-          <a class="dropdown-item" href="<?php echo URLROOT;?>/students/evidenta">Evidenta</a>
+          <a class="dropdown-item" href="<?php echo URLROOT;?>/evidenta/evidenta">Evidenta</a>
         </div>
         </ul>
       </div>

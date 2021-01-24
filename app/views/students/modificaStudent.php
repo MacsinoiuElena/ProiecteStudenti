@@ -31,20 +31,6 @@
                         value = "<?php echo $data['group'];?>"/>                      
                         <span class="invalid-feedback"><?php echo $data['group_error'];?></span>
                     </div>
-
-                    <div class="form-group">
-                        <label for="den">Proiect: <sup>*</sup></label><br>
-                        <select name="den" id="proiect" class = "form-control form-control-lg <?php echo (!empty($data['den_error'])) ? 'is-invalid': '';?>" >
-                            <option value="<?php echo $data['den'];?>"  selected><?php echo $data['den'];?></option>
-                            <?php 
-                            foreach ($data['proiect'] as $proiect){
-                                if ($proiect->denumire != $data['den']){ 
-                                ?><option value = "<?php echo $proiect->denumire;?>"><?php echo $proiect->denumire;?></option>
-                                <?php
-                            }}?>
-                        </select>
-                        <span class="invalid-feedback"><?php echo $data['den_error'];?></span>
-                    </div>
                         <input type="submit" value = "Modifica" class="btn btn-success">
             </form>
             </div>

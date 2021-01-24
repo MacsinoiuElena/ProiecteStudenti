@@ -4,13 +4,13 @@ class Projects extends Controller{
     public function __construct(){
         $this->studModel = $this->model('Student');
         $this->projModel = $this->model('Proiect');
-        $this->evidModel = $this->model('Evidenta');
+        $this->evidModel = $this->model('Evidence');
 
     }
 
     public function index(){
         
-        $data = ['title' => 'Proiecte Electronica', 'description1' => 'Fiecare student isi va alege un singur proiect', 'description2' => 'Termenul limita pentru predare va fi peste 2 saptamani'];
+        $data = ['title' => 'Proiecte Electronica', 'description1' => 'Fiecare student isi va alege maxim 3 proiecte', 'description2' => 'Termenul limita pentru predare va fi peste 2 saptamani'];
         $this->view('pages/index', $data);
     }
 
