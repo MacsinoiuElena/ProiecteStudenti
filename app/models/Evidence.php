@@ -8,7 +8,7 @@
             }
             
             public function display(){
-                $this->db->query('SELECT id, nume, prenume, email, grupa FROM student JOIN proiect_student ON student.id = proiect_student.id_student');
+                $this->db->query('SELECT DISTINCT id, nume, prenume, email, grupa FROM student JOIN proiect_student ON student.id = proiect_student.id_student');
                 $results = $this->db->resultSet();
 
                 return $results;
